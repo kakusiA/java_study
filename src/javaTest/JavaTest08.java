@@ -2,7 +2,7 @@ package javaTest;
 
 public class JavaTest08 {
     public static void main(String[] args) {
-        int a = 10;
+        int a = 15;
         for (int i = 1; i <= a; i++) {
             int s = 0;
             int val = a-i;

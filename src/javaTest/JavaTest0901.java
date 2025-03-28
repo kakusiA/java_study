@@ -2,11 +2,18 @@ package javaTest;
 
 public class JavaTest0901 {
     public static void main(String[] args) {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (j>=i && j < 5-i){
+        int v =51;
+        for (int i = 0; i < v; i++) {
+            for (int j = 0; j < v; j++) {
+                int a = v-1-i;
+                if (a < 0) {
+                    a = -a;
+
+                }
+                if(j >= i && j <= a){
                     System.out.print("*");
                 }
+                else System.out.print(" ");
             }
             System.out.println();
         }

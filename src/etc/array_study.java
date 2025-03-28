@@ -1,3 +1,5 @@
+package etc;
+
 //배열 연습
 public class array_study {
     public static void main(String[] args) {

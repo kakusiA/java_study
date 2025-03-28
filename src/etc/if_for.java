@@ -1,3 +1,5 @@
+package etc;
+
 import java.util.*;
 
 //반복문과 조건식 샘플
