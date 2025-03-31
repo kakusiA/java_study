@@ -77,8 +77,16 @@ public class Hello {
 //        tc5_6.sum();
 //        Tc5_7 tc5_7 = new Tc5_7();
 //        tc5_7.sum();
-        Tc5_8 tc5_8 = new Tc5_8();
-        tc5_8.sum();
+//        Tc5_8 tc5_8 = new Tc5_8();
+//        tc5_8.sum();
+//        Tc5_9 tc5_9 = new Tc5_9();
+//        tc5_9.sum();
+//        Tc5_10 tc5_10 = new Tc5_10();
+//        tc5_10.sum();
+//        Tc5_11 tc5_11 = new Tc5_11();
+//        tc5_11.sum();
+        Tc5_13 tc5_13 = new Tc5_13();
+        tc5_13.sum();
     }
 }
 class Tc3_2{
@@ -490,6 +498,120 @@ class Tc5_8{
                 System.out.print("*");
             }
             System.out.println();
+        }
+    }
+}
+class Tc5_9{
+    char[][] star = {
+            {'*','*',' ',' ',' '},
+            {'*','*',' ',' ',' '},
+            {'*','*','*','*','*'},
+            {'*','*','*','*','*'}
+    };
+    char[][] result = new char[star[0].length][star.length];
+    void sum() {
+        for(int i = 0; i<star.length; i++){
+            for(int j = 0; j<star[i].length; j++){
+                System.out.print(star[i][j]);
+            }
+            System.out.println(
+            );
+        }
+        System.out.println();
+        for(int i = 0; i<star.length; i++){
+            for(int j = 0; j<star[i].length; j++){
+                result[j][3-i] = star[i][j];
+            }
+        }
+        for(int i = 0; i<result.length; i++){
+            for(int j = 0; j<result[i].length; j++){
+                System.out.print(result[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
+class Tc5_10{
+    // 문제에서 제시한 문자 변환용 배열
+    char[] abcCode = {'`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '|', '[', ']', '{',
+            '}', ';', ':', ',', '.', '/'
+    };
+    char[] numCode = {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'};
+
+    // 변환 대상 문자열
+    String src = "abc123";
+    String result = "";
+    void sum() {
+    // (1) 문자열 src의 문자를 하나씩 읽어서 변환 후 result에 저장
+        for(int i = 0; i < src.length(); i++) {
+            char ch = src.charAt(i);
+            if(ch >= '0' && ch <= '9'){
+                result += (char)(numCode[(int)(ch -'0')]);
+                continue;
+            }
+            else result += (char)(abcCode[(int)(ch -'a')]);
+        }
+
+    // 결과 출력
+        System.out.println("src=" + src);
+        System.out.println("result=" + result);
+    }
+}
+class Tc5_11{
+    int[][]scroe = {
+            {100,100,100},
+            {20,20,20},
+            {30,30,30},
+            {40,40,40},
+            {50,50,50}
+    };
+    int[][] result = new int[scroe.length +1 ][scroe[0].length + 1];
+    void sum() {
+        int sumVal = 0;
+        for(int i = 0; i<scroe.length; i++){
+            for(int j = 0; j<scroe[i].length; j++){
+                sumVal += scroe[i][j];
+                result[i][j] = scroe[i][j];
+                result[result.length-1][j] += scroe[i][j];
+            }
+            result[i][result[0].length-1] = sumVal;
+            result[result.length-1][result[0].length-1] += sumVal;
+//            System.out.println(sumVal);
+            sumVal = 0;
+        }
+        for(int i = 0; i<result.length; i++){
+            for(int j = 0; j<result[i].length; j++){
+                System.out.printf("%4d",result[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
+class Tc5_12{
+
+}
+class Tc5_13{
+    String[] words = {"television","computer","mouse","phone"};
+
+    Scanner sc = new Scanner(System.in);
+    void sum() {
+        for(int i = 0; i<words.length; i++){
+            char[] question = words[i].toCharArray();
+             for(int j = 0; j<question.length; j++){
+                 int rand = (int)(Math.random()*question.length);
+                 char tmp = question[j];
+                 question[j] = question[rand];
+                 question[rand] = tmp;
+             }
+            System.out.printf("Q%d. %s의 정답을 입력하세요.>",i+1,new String(question));
+            String answer = sc.nextLine();
+
+            if(words[i].equals(answer.trim())){
+                System.out.println("정답입니다.\n\n");
+            }
+            else{
+                System.out.println("틀렸습니다.\n\n");
+            }
         }
     }
 }
