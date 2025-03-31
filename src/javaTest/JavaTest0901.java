@@ -8,12 +8,18 @@ public class JavaTest0901 {
                 int a = v-1-i;
                 if (a < 0) {
                     a = -a;
-
                 }
-                if(j >= i && j <= a){
-                    System.out.print("*");
+                if(i >=v/2 ){
+                    if(j <= i && j >= a){
+                        System.out.print("*");
+                    }
+                    else System.out.print(" ");
                 }
-                else System.out.print(" ");
+                else {
+                    if (j >= i && j <= a) {
+                        System.out.print("*");
+                    } else System.out.print(" ");
+                }
             }
             System.out.println();
         }

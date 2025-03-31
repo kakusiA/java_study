@@ -23,6 +23,12 @@ public class ClassTv {
         //tv1객체의 변수를 tv2변수에 넣어라 tv1주소로 변경 기존 tv2참조 주소는 삭제됨
         tv2 = tv1;
         System.out.println(tv2.channel);
+       TV[] a3 = new TV[3];
+       a3[0] = new TV();
+       a3[1] = new TV();
+       a3[2] = new TV();
+       a3[0].color = "red";
+        System.out.println(a3[0].color);
     }
 
 }
