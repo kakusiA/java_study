@@ -10,9 +10,10 @@ public class Hello {
 //        System.out.println(tc3_5.b);
 //        Tc3_6 tc3_6 = new Tc3_6();
 //        System.out.println(tc3_6.b);
-//        Tc3_7 tc3_7 = new Tc3_7();
-//        System.out.println("화씨 = "+ tc3_7.a);
-//        System.out.println("섭씨 = " + tc3_7.c);
+        Tc3_7 tc3_7 = new Tc3_7();
+        System.out.println("화씨 = "+ tc3_7.a);
+        System.out.println(tc3_7.b);
+//        System.out.printf("섭씨 = %.2f", tc3_7.b);
 //        Tc3_8 tc3_8 = new Tc3_8();
 //        System.out.println(tc3_8.c);
 //        System.out.println(tc3_8.ch);
@@ -85,8 +86,8 @@ public class Hello {
 //        tc5_10.sum();
 //        Tc5_11 tc5_11 = new Tc5_11();
 //        tc5_11.sum();
-        Tc5_13 tc5_13 = new Tc5_13();
-        tc5_13.sum();
+//        Tc5_13 tc5_13 = new Tc5_13();
+//        tc5_13.sum();
     }
 }
 class Tc3_2{
@@ -112,9 +113,9 @@ class Tc3_6{
 }
 class Tc3_7{
     int a = 100;
-    float b = (float)5/9 * (a-32);
+    float b = ((float)5/9 * (a-32));//화씨 -> 섭씨
     //소수점 3짜리 반올림
-    float c = (int)(b*100 + (b%100 >5 ? 1 : 0))/(float)100;
+//    float c = (int)(b*100 + (b%100 >5 ? 1 : 0))/(float)100;
 }
 class Tc3_8{
     byte a = 10;
@@ -137,7 +138,7 @@ class Tc3_10{
 }
 class Tc4_1{
     int x = 15;
-    boolean intResult = x >=10 && x <=20;
+    boolean intResult = x >10 && x <20;
     char ch = 's';
     boolean chResult = ch != '\t' && ch != ' ';
     char ch2 = 'x';

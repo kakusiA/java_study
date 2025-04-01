@@ -83,9 +83,15 @@ public class study1 {
         System.out.println(d2);
         int[] sd = {1,2,3,4,5,6,1234,8,9};
         sort(sd);
-        System.out.println(sd[-1]);
+//        System.out.println(sd[-1]);
         System.out.println(Math.max(0,sd[0]));
         System.out.println(Math.min(0,sd.length));
-
+        System.out.println('A'+'B');
+        System.out.println((int)'1');
+        Long as1 = 1L;
+        for (int k = 0; k<16; k++){
+            as1 *=2;
+        }
+        System.out.println(as1-1);
     }
 }
