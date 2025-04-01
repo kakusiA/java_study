@@ -10,10 +10,10 @@ public class Hello {
 //        System.out.println(tc3_5.b);
 //        Tc3_6 tc3_6 = new Tc3_6();
 //        System.out.println(tc3_6.b);
-        Tc3_7 tc3_7 = new Tc3_7();
-        System.out.println("화씨 = "+ tc3_7.a);
-        System.out.println(tc3_7.b);
-//        System.out.printf("섭씨 = %.2f", tc3_7.b);
+//        Tc3_7 tc3_7 = new Tc3_7();!`
+//        System.out.println("화씨 = "+ tc3_7.a);
+//        System.out.println(tc3_7.b);
+//        System.out.printf("섭씨 = %.2f", tc3_7.d);
 //        Tc3_8 tc3_8 = new Tc3_8();
 //        System.out.println(tc3_8.c);
 //        System.out.println(tc3_8.ch);
@@ -115,7 +115,8 @@ class Tc3_7{
     int a = 100;
     float b = ((float)5/9 * (a-32));//화씨 -> 섭씨
     //소수점 3짜리 반올림
-//    float c = (int)(b*100 + (b%100 >5 ? 1 : 0))/(float)100;
+    float c = (int)(b*100 + (b%100 >5 ? 1 : 0))/(float)100;
+    float d = (int)(b*100 +0.5f)/100f;
 }
 class Tc3_8{
     byte a = 10;
@@ -192,12 +193,12 @@ class Tc4_4{
         }
     }
 }
-class Tc4_5{
+class Tc4_5 {
     int a = 0;
     int b = 0;
     void sum() {
         while(true) {
-            loop1:while (true){
+            while (true){
                 if(a >=b ){
                     System.out.print("*");
                 }
@@ -302,6 +303,53 @@ class Tc4_12{
         }
     }
 }
+class Tc4_12_1{
+    public static void main(String[] args) {
+        int count = 1;
+        int value = 2;
+//        for(int i = 2; i <11; i++){
+//            if(i %3 -2 == 0){
+//                value = i;
+//                count =1;
+//                System.out.println();
+//            }
+//            for (int j = 0; j <3; j++){
+//                if(value+j >9){
+//                    break;
+//                }
+//                System.out.print((value+j) + "*" + count + " = " + (value+j)*count +"       ");
+//            }
+//            count++;
+//            System.out.println();
+//        }
+        for(int i = 0; i <3; i++){
+            value = 3*i+2;
+            int ss = 0;
+//            System.out.println(value);
+            for (int j = 1; j <=9; j++){
+                if (value + ss >9){
+                    if(j%3 == 0){
+                        System.out.println();
+                        ss = 0;
+                        count++;
+                    }
+                    continue;
+                }
+                System.out.print((value+ss) + "*" + count + " = " + (value+ss)*count +"       ");
+//                System.out.println(value + ss);
+                ss ++;
+                if(j%3 == 0){
+                    System.out.println();
+                    ss = 0;
+                    count++;
+                }
+
+            }
+            count = 1;
+            System.out.println();
+        }
+    }
+}
 class Tc4_13{
     String str = "1ㅁ234";
     char ch = ' ';
@@ -356,7 +404,7 @@ class Tc4_15{
             result += tmp%10;
             tmp = tmp/10;
         }
-        System.out.println(result);
+//        System.out.println(result);
         if(number ==result){
             System.out.println(number + "는 회문수입니다.");
         }
@@ -406,9 +454,10 @@ class Tc5_5{
             ballArr[i] = ballArr[j];
             ballArr[j] = tmp;
         }
-        for(int i = 0; i <ball3.length; i++){
-            ball3[i] = ballArr[i];
-        }
+//        for(int i = 0; i <ball3.length; i++){
+//            ball3[i] = ballArr[i];
+//        }
+        ball3 = Arrays.copyOf(ballArr, ball3.length);
         for(int i = 0; i <ball3.length; i++){
             System.out.print(ball3[i]);
         }
@@ -425,7 +474,7 @@ class Tc5_6{
         }
     }
 }
-class Tc5_7{
+class  Tc5_7{
     void sum() {
 //        if(args.length != 1){
 //            System.out.println("Usage: java -jar etc.jar Tc5_7");
@@ -521,7 +570,7 @@ class Tc5_9{
         System.out.println();
         for(int i = 0; i<star.length; i++){
             for(int j = 0; j<star[i].length; j++){
-                result[j][3-i] = star[i][j];
+                result[j][star.length-1 -i] = star[i][j];
             }
         }
         for(int i = 0; i<result.length; i++){
@@ -568,17 +617,17 @@ class Tc5_11{
     };
     int[][] result = new int[scroe.length +1 ][scroe[0].length + 1];
     void sum() {
-        int sumVal = 0;
+//        int sumVal = 0;
         for(int i = 0; i<scroe.length; i++){
             for(int j = 0; j<scroe[i].length; j++){
-                sumVal += scroe[i][j];
+                result[i][result[0].length-1] += scroe[i][j];
                 result[i][j] = scroe[i][j];
                 result[result.length-1][j] += scroe[i][j];
             }
-            result[i][result[0].length-1] = sumVal;
-            result[result.length-1][result[0].length-1] += sumVal;
+//            result[i][result[0].length-1] = sumVal;
+            result[result.length-1][result[0].length-1] += result[i][result[0].length-1];
 //            System.out.println(sumVal);
-            sumVal = 0;
+//            sumVal = 0;
         }
         for(int i = 0; i<result.length; i++){
             for(int j = 0; j<result[i].length; j++){

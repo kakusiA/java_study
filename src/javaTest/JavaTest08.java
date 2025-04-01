@@ -1,8 +1,8 @@
 package javaTest;
 
 public class JavaTest08 {
-    public static void main(String[] args) {
-        int a = 15;
+    public static void main(String[] args) throws InterruptedException {
+        int a = 50;
         for (int i = 1; i <= a; i++) {
             int s = 0;
             int val = a-i;
@@ -21,6 +21,7 @@ public class JavaTest08 {
                 }
                 else System.out.print(" ");
             }
+//            Thread.sleep(500);
             System.out.println();
         }
     }
