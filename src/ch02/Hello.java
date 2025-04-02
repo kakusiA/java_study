@@ -84,8 +84,8 @@ public class Hello {
 //        tc5_9.sum();
 //        Tc5_10 tc5_10 = new Tc5_10();
 //        tc5_10.sum();
-//        Tc5_11 tc5_11 = new Tc5_11();
-//        tc5_11.sum();
+        Tc5_11 tc5_11 = new Tc5_11();
+        tc5_11.sum();
 //        Tc5_13 tc5_13 = new Tc5_13();
 //        tc5_13.sum();
     }
@@ -290,12 +290,12 @@ class Tc4_12{
     void sum() {
         for(int i = 0; i <3; i++){
             for(int j = 1; j <4; j++){
-                int value = 3*i+2;
                 for (int k = 0; k < 3; k++) {
-                    if (value+k >9){
+                    int value = 3*i+2 +k;
+                    if (value >9){
                         break;
                     }
-                    System.out.print((value +k) + "*" + j + " = " + (value+k)*j +"       ");
+                    System.out.print((value) + "*" + j + " = " + (value)*j +"       ");
                 }
                 System.out.println();
             }
@@ -619,15 +619,14 @@ class Tc5_11{
     void sum() {
 //        int sumVal = 0;
         for(int i = 0; i<scroe.length; i++){
+            int a1 = result[0].length-1;
+            int a2 = result.length-1;
             for(int j = 0; j<scroe[i].length; j++){
-                result[i][result[0].length-1] += scroe[i][j];
+                result[i][a1] += scroe[i][j];
                 result[i][j] = scroe[i][j];
-                result[result.length-1][j] += scroe[i][j];
+                result[a2][j] += scroe[i][j];
+                result[a2][a1] += scroe[i][j];
             }
-//            result[i][result[0].length-1] = sumVal;
-            result[result.length-1][result[0].length-1] += result[i][result[0].length-1];
-//            System.out.println(sumVal);
-//            sumVal = 0;
         }
         for(int i = 0; i<result.length; i++){
             for(int j = 0; j<result[i].length; j++){
@@ -638,7 +637,28 @@ class Tc5_11{
     }
 }
 class Tc5_12{
+    public static void main(String[] args) {
+        String[][] words = {
+                {"chair","의자"},
+                {"computer","컴퓨터"},
+                {"integer","정수"}
+        };
+        int count = words.length;
+        Scanner sc = new Scanner(System.in);
+        for(int i = 0; i<words.length; i++){
+            System.out.printf("Q%d. %s의 뜻은?",i+1,words[i][0]);
+            String tmp =sc.nextLine();
+            if(tmp.equals(words[i][1])){
+                System.out.println("정답입니다.");
+            }
+            else {
+                System.out.printf("틀렸습니다. 정답은 %s입니다. \n\n", words[i][1]);
+                count--;
+            }
 
+        }
+        System.out.println("전체" + words.length +"문제 중 " + count+"문제 맞추셨습니다.");
+    }
 }
 class Tc5_13{
     String[] words = {"television","computer","mouse","phone"};
