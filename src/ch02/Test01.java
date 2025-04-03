@@ -1,6 +1,6 @@
 package ch02;
 import java.util.*;
-public class Hello {
+public class Test01 {
     public static void main(String[] args) {
 //        Tc3_3 tc3_3 = new Tc3_3();
 //        System.out.println(tc3_3.b);
