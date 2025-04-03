@@ -1,5 +1,9 @@
 package ch;
 
+import etc.array_study;
+
+import java.awt.*;
+
 public class Ch06 {
 }
 class Time{
@@ -52,7 +56,7 @@ class Main{
 //가변인자
 class Test{
     static String s;
-    static void  result(String ssa ,String... ss){
+    static void  result(String ssa ,String... ss){//String... -> 배열
         s = ssa;
         for(int i=0;i< ss.length;i++){
             System.out.println(ss[i]);
@@ -110,5 +114,23 @@ class t123{
         d1.print();
         Document d2 = new Document("직박구리");
         d2.print();
+        t1ww a = new t1ww("red",123);
+        System.out.println(a.color);
+        System.out.println(a.num);
+    }
+}
+class t1ww{
+    String color;
+    int num;
+
+    t1ww(String color,int num){
+        this.color = color;
+        this.num = num;
+    }
+}
+class a123{
+    public static void main(String[] args) {
+        array_study t = new array_study();
+
     }
 }

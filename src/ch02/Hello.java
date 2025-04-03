@@ -9,7 +9,7 @@ public class Hello {
 //        Tc3_5 tc3_5 = new Tc3_5();
 //        System.out.println(tc3_5.b);
 //        Tc3_6 tc3_6 = new Tc3_6();
-//        System.out.println(tc3_6.b);
+//        System.out.println(tc3_6.c);
 //        Tc3_7 tc3_7 = new Tc3_7();!`
 //        System.out.println("화씨 = "+ tc3_7.a);
 //        System.out.println(tc3_7.b);
@@ -108,7 +108,8 @@ class Tc3_5{
     int b = a/10*10 +1;
 }
 class Tc3_6{
-    int a = 24;
+    int a = 56;
+    int c = 10 -a%10;
     int b = (a%10 == 0 ? a/10*10 : (a/10 +1)*10) - a;
 }
 class Tc3_7{

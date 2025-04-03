@@ -36,20 +36,11 @@ public class Main {
         for(int i : charr2){
             System.out.println((char)i);
         }
-        tes1 t1 = new tes1();
-        t1.sum();
     }
 }
 class tes1{
-    void sum(){
-        for(int i = 0;i<5;i++){
-            for(int j = 0;j<5;j++){
-                if(i==j){
-                    System.out.printf("[%d,%d]",i,j);
-                }
-                else System.out.printf("%5c", ' ');
-            }
-            System.out.println();
-        }
+    public static void main(String[] args) {
+        System.out.println('a'+"22");
+        
     }
 }
