@@ -1,5 +1,7 @@
 package ch02;
 
+import java.util.Arrays;
+
 public class Test02 {
 }
 class Tc6_2 {
@@ -107,3 +109,140 @@ class MyPoint{
         return Math.sqrt((x-this.x)*(x-this.x) + (y-this.y)*(y-this.y));
     }
 }
+class Tc6_20{
+    static int [] shuffle(int[] arr){
+        for (int i = 0; i < arr.length; i++){
+            int rand = (int)(Math.random()*arr.length);
+            int tmp = arr[i];
+            arr[i] = arr[rand];
+            arr[rand] = tmp;
+
+        }
+        return arr;
+    }
+    public static void main(String[] args) {
+        int [] oreiginal = { 1,2,3,4,5,6,7,8,9};
+        System.out.println(java.util.Arrays.toString(oreiginal));
+
+        int[]result = shuffle(oreiginal);
+        System.out.println(java.util.Arrays.toString(result));
+    }
+}
+class MyTv{
+    boolean isPowerOn;
+    int channel;
+    int volume;
+    final int MaxVolume = 100;
+    final int MinVolume = 0;
+    final int MaxChannel = 100;
+    final int MinChannel = 1;
+
+    void turnOnoff(){
+        if (isPowerOn){
+            isPowerOn = false;
+        }
+        else isPowerOn = true;
+    }
+    void volumeUp(){
+        if(volume<MaxVolume){
+            volume++;;
+        }
+        else return;
+    }
+    void volumeDown(){
+        if(volume>MinVolume){
+            volume--;
+        }
+        else return;
+    }
+    void channeleUp(){
+        if(channel>=MaxChannel){
+            channel = MinChannel;
+        }
+        else channel++;
+    }
+    void channelDown(){
+        if(channel<=MinChannel){
+            channel = MaxChannel;
+        }
+        else channel--;
+    }
+}
+class Tc6_21{
+    public static void main(String[] args) {
+        MyTv tv = new MyTv();
+        tv.channel = 100;
+        tv.volume = 0;
+        System.out.println(tv.channel+","+tv.volume);
+        tv.channelDown();
+        tv.volumeDown();
+        System.out.println(tv.channel+","+tv.volume);
+        tv.volume = 100;
+        tv.channeleUp();
+        tv.volumeUp();
+        System.out.println(tv.channel+","+tv.volume);
+        tv.channel = 0;
+        tv.channelDown();
+        System.out.println(tv.channel);
+    }
+}
+class Tc6_22{
+    static boolean isNumber(String str){
+        boolean result =true;
+        for (int i = 0; i < str.length(); i++){
+            char c = str.charAt(i);
+            if(!(c>='0' && c<='9')){
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        String str = "123";
+        System.out.println(str + "는 숫자입니까? "+ isNumber(str));
+        String str2 = "123o";
+        System.out.println(str + "는 숫자입니까? "+ isNumber(str2));
+    }
+}
+class Tc6_23{
+     static int max(int [] date){
+         if(date == null){
+             return -99999;
+         }
+         else if(date.length == 0){
+             return -99999;
+         }
+        int result = date[0];
+//        result = Math.max(date[0],date.length);
+        for (int i = 0; i < date.length; i++){
+            if(result<date[i]){
+                result = date[i];
+            }
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        int [] date = {3,2,9,4,7};
+        System.out.println(Arrays.toString(date));
+        System.out.println("최대값 = " + max(date));
+        System.out.println("최대값 = " + max(null));
+        System.out.println("최대값 = " + max(new int[]{}));
+
+    }
+}
+class Tc6_24{
+    static int abs(int a){
+        if (a < 0){
+            return -a;
+        }
+        return a;
+    }
+    public static void main(String[] args) {
+        int value = 5;
+        System.out.println(value + "의 절대값 : " + abs(value));
+        value = -10;
+        System.out.println(value + "의 절대값 : " + abs(value));
+    }
+}
+//6장 끝
