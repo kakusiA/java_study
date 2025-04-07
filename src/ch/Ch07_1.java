@@ -1,4 +1,7 @@
 package ch;
+
+import java.util.SortedMap;
+
 class Times{
     private int hour; //0부터23값을 가져야함
     private int minute;
@@ -80,5 +83,68 @@ class TVTest{
         //자손이 조상 객체 선언 불가능 // 노인공경해야지 잉..
         TV tv = new SmartTv();//가능
 //        SmartTv tv2 = new TV();//불가능
+    }
+}
+
+class Ex7_7{
+    public static void main(String[] args) {
+        FireEngine fe = new FireEngine();
+        fe.color = "red";
+        fe.door = 10;
+        System.out.println(fe.color + "," + fe.door);
+        fe.water();
+        Car c = (Car)fe;
+        System.out.println(c.color + "," + c.door);
+//        c.water();
+        FireEngine fe2 = (FireEngine)c;
+        System.out.println(fe2.color + "," + fe2.door);
+        fe2.water();
+        Car car = null;
+        FireEngine fe6 = null;
+
+        fe.water();
+        car = fe; //(car)fe car타입으로 형변환됨
+//        car.water()
+        fe6 = (FireEngine)car;//형변환
+        fe2.water();
+        Car car2 = null;
+        FireEngine fe3 = null;
+        FireEngine fe4 = (FireEngine)car2;
+        Car car3 = (Car)fe3;
+        car3.drive();
+
+    }
+}
+
+class Ex7_7_1{
+    public static void main(String[] args) {
+        Car car = new Car();
+        FireEngine fe = (FireEngine)car;
+        fe.water();
+    }
+}
+class insOf {
+    public static void main(String[] args) {
+        FireEngine fe = new FireEngine();
+        //instanceof연산자는 조상들도 모두 true가나옴
+        System.out.println(fe instanceof Object);
+        System.out.println(fe instanceof Car);
+        System.out.println(fe instanceof FireEngine);
+    }
+}
+class Car{
+    String color;
+    int door;
+
+    void drive(){
+        System.out.println("drive, Brrrr");
+    }
+    void stop(){
+        System.out.println("stop!!!!!");
+    }
+}
+class FireEngine extends Car{
+    void water(){
+        System.out.println("water!!!");
     }
 }
