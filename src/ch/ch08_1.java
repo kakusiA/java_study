@@ -1,5 +1,7 @@
 package ch;
 
+import javax.transaction.xa.XAException;
+
 public class ch08_1 {
     public static void main(String[] args) {
         try {
@@ -37,6 +39,56 @@ class d2312{
             System.out.println("1번처리");
             throw e;
         }
+
+    }
+//    static void startInstall() throws SpaceException, MemoryException{
+//        if(!enoughSpace())
+//            throw new SpaceException("1");
+//        if(!enoughMemory())
+//            throw new MemoryException("2");
+//    }
+//
+//    static void startInstall1() throws SpaceException{
+//        if(!enoughSpace())
+//            throw new SpaceException("1");
+//        if(!enoughMemory())
+//            throw new RuntimeException( new MemoryException("2"));//checked -> unckecked로 변환
+//    }
+}
+class Test132{
+    public static void main(String[] args) {
+        int a =10;
+        int b = 20;
+        int c = a+b;
+        int d =10 +20;
+
+    }
+}
+class ss{
+    String a = "10";
+    int b =20;
+}
+class bb{
+    String a = "10";
+}
+
+class e2{
+    public static void main(String[] args) {
+        ss s1 = new ss();
+        bb s2 = new bb();
+        if (s1.a.equals(s2.a)){
+            System.out.printf("성공");
+        }
+        else System.out.printf("실패");
+
+        if(s1.a.contains(s2.a)){
+            System.out.printf("성공");
+        }
+        else System.out.printf("실패");
+        int [] a = new int[10];
+        StringBuffer ss = new StringBuffer("2314");
+        ss.append("e2");
+        System.out.println(ss);
 
     }
 }
