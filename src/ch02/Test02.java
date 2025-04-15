@@ -1,8 +1,14 @@
 package ch02;
 
+import java.awt.*;
+import java.awt.event.*;
+import java.beans.EventHandler;
 import java.util.Arrays;
 
 public class Test02 {
+    public static void main(String[] args) {
+        int a = (int)Math.random();
+    }
 }
 class Tc6_2 {
     public static void main(String[] args) {
@@ -246,3 +252,132 @@ class Tc6_24{
     }
 }
 //6장 끝
+class  outer {
+    int value = 10;
+    class inner{
+        int value =20;
+
+        void method1(){
+            int value = 30;
+
+            System.out.println(value);
+            System.out.println(this.value);
+            System.out.println(outer.this.value);
+        }
+    }
+}
+class SutdaCard1{
+    final int num;
+    final boolean isKwang;
+
+    SutdaCard1(){
+        this(1,true);
+    }
+    SutdaCard1(int num, boolean isKwang){
+        this.num = num;
+        this.isKwang = isKwang;
+    }
+    public  String toString(){
+        return num +(isKwang? "k":"");
+    }
+}
+class Tc7_14{
+    public static void main(String[] args) {
+        SutdaCard1 card = new SutdaCard1(1,true);
+        System.out.println(card.num);
+        System.out.println(card.isKwang);
+        SutdaCard1 card1 = new SutdaCard1(1,true);
+    }
+}
+class Tc7_231{
+    public static void main(String[] args) {
+        Circle c = new Circle(5);
+        System.out.println(c.calcArea());
+    }
+}
+abstract class Shape{
+    Point p;
+    Shape() {
+        this(new Point(0, 0));
+    }
+    Shape(Point p ){
+        this.p =p;
+    }
+    abstract double calcArea();
+
+    Point getPosition(){
+        return p;
+    }
+    void setPosition(Point p ){
+        this.p = p;
+    }
+}
+class Circle extends Shape{
+    double r;
+    Circle(){};
+    Circle(double r){
+        this.r =r;
+    }
+    double calcArea(){
+        return r*r*Math.PI;
+    }
+}
+class Rectangle extends Shape{
+    double width;
+    double height;
+    Rectangle(){}
+    Rectangle(int width,int height){
+        this.width =width;
+        this.height =height;
+    }
+    double calcArea(){
+        return width*width;
+    }
+    boolean isSquare(){
+        if (width == height){
+            return true;
+        }
+        else return false;
+    }
+}
+class Point{
+    int x;
+    int y;
+    Point(){
+        this(0,0);
+    }
+    Point(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    public String toString(){
+        return "[" + x + "," + y + "]";
+    }
+}
+
+class Tc7_22{
+    public static void main(String[] args) {
+
+    }
+}
+class Tc7_25{
+    public static void main(String[] args) {
+        outer.inner inner = new outer().new inner();
+        inner.method1();
+    }
+}
+
+class Tc7_28{
+    public static void main(String[] args) {
+        Frame f = new Frame();
+        WindowAdapter e  = new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent e){
+                e.getWindow().setVisible(false);
+                e.getWindow().dispose();
+                System.exit(0);
+            }
+        };
+        f.addWindowFocusListener(e);
+    }
+}
