@@ -3,6 +3,7 @@ package Test;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import java.lang.annotation.Annotation;
 import java.util.Arrays;
 
 public class CardTest {

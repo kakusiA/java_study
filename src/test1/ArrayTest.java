@@ -63,3 +63,163 @@ public class ArrayTest {
         System.out.println(s.hashCode());
     }
 }
+
+class Stack1{
+    public static void main(String[] args) {
+        Stack st = new Stack();
+        System.out.println(st.empty());
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(10);
+        st.push(4);
+        System.out.println(st);
+        System.out.println(st.peek());
+        st.pop();
+        System.out.println(st);
+        System.out.println(st.search(10));
+    }
+}
+class Queue1{
+    public static void main(String[] args) {
+//        Queue q = new Queue();//인터페이스
+        Queue q = new ArrayDeque();
+        q.add(5);//오류 발생
+        q.offer(4);//오류 발생 X
+        q.remove();//오류발생
+        q.poll();//오류발생 X
+        q.offer(13);
+        q.offer(13);
+        q.offer(13);
+        q.offer(321);
+        System.out.println(q.peek());
+        System.out.println(q);
+    }
+}
+
+class Itera{
+    public static void main(String[] args) {
+        ArrayList al = new ArrayList();
+        al.add(1);
+        al.add(145);
+        al.add(451);
+        al.add(134);
+        al.add(5461);
+        al.add(2311);
+        al.add(1241);
+        al.add(1123);
+        al.add(213);
+        Iterator it = al.iterator();//이터레이터 선언
+        while (it.hasNext()){//없을때까지 true
+            System.out.println(it.next());//요소 읽어오기
+        }
+        System.out.println("+++++++++++++++");
+        for(Object i : al){
+            System.out.println(i);
+        }
+    }
+}
+
+class Arr{
+    public static void main(String[] args) {
+        int[] arr = {1,3,4,5,43,12,4,1,3412,31,24,231};
+        System.out.println(Arrays.toString(arr));
+        int[] arr2 =Arrays.copyOf(arr,arr.length);//~까지 카피
+        System.out.println(Arrays.toString(arr2));
+        int[] arr3 = Arrays.copyOfRange(arr,0,4);//~에서~까지 카피
+        System.out.println(Arrays.toString(arr3));
+        int[] arr4 = new int[10];
+        Arrays.fill(arr4,9);//값을 모두 9로 채움
+        System.out.println(Arrays.toString(arr4));
+        Arrays.sort(arr2);//정렬
+        System.out.println(Arrays.toString(arr2));
+        int idx = Arrays.binarySearch(arr2,31);//값으 인덱스 찾음 반드시 정렬필
+        System.out.println(idx);
+    }
+}
+
+class ad {
+    public static void main(String[] args) {
+        int[] a = new int[10000000];
+        Long sum = 0L;
+        for (int i = 0; i<a.length; i++){
+            a[i] = (int)(Math.random()*10000);
+        }
+        Arrays.sort(a);
+        int count = 0;
+        for (int i : a){
+            sum += i;
+            count ++;
+        }
+        System.out.println(sum);
+        System.out.println();
+        System.out.println(count);
+
+    }
+}
+
+class aqwe{
+    public static void main(String[] args) {
+        int [] al = {1,23,2,4,5};
+        LinkedList La = new LinkedList();
+        La.add(4);
+        La.add(4);
+        La.add(4);
+        La.add(4);
+        System.out.println(Arrays.toString(La.toArray()));
+        System.out.println(La.toArray());
+        System.out.println(al);
+        System.out.println(al[1]);
+        System.out.println(al[0]);
+    }
+}
+interface AB{
+    void print();
+}
+class B{
+    int x;
+    int y;
+}
+
+class A extends B{
+    int z;
+}
+
+class C extends B{
+    int c;
+}
+
+class Box<T extends B> implements AB{//제네릭스
+    T a;
+    void prq(){
+        if(a instanceof A){
+            A aa = (A)a;
+            aa.z =30;
+            System.out.println(aa.z);
+        }
+        else if(a instanceof C){
+            C cc =(C)a;
+            cc.c=60;
+            System.out.println(cc.c);
+        }
+        else System.out.println(a.x);
+    }
+    Box(T t){
+        this.a =t;
+    }
+    public void print(){
+        System.out.println(a.x);
+        System.out.println(a.y);
+    }
+}
+
+class dasd{
+    public static void main(String[] args) {
+        Box<? extends B> az = new Box<>(new C());
+        az.a.x =10;
+        az.a.y =20;
+        az.print();
+        az.prq();
+    }
+}
+
