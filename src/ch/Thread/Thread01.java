@@ -30,7 +30,7 @@ public class Thread01 {
     }
 }
 
-class Thread02{
+class Thread012{
     static long start = System.currentTimeMillis();
     public static void main(String[] args) {
         for(int i = 0; i<300; i++){

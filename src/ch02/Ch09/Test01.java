@@ -209,3 +209,27 @@ class Exercise9_9 {
                 + delChar("(1 2 3 4\t5)"," \t"));
     }
 }
+class Exercise9_10{
+    static String format(String str, int length1, int a){
+        if(str.length() >= length1){
+            return str.substring(0,length1);
+        } else if (a == 0) {
+            char[] charr = new char[length1];
+            Arrays.fill(charr,' ');
+            char[] charr2 = str.toCharArray();
+            System.out.println(charr);
+            System.out.println(charr2);
+            System.arraycopy(charr,0,charr2,0,length1);
+            return str;
+        } else if (a == 1) {
+
+        }
+        else return str;
+        return str;
+    }
+    public static void main(String[] args) {
+        String str = "가나다";
+
+        System.out.println(format(str,7,0));
+    }
+}
