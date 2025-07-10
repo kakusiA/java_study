@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
+    static int totalCount =0;
     public static void main(String[] args) {
         Card card = new Card();
         Scanner sc = new Scanner(System.in);
@@ -33,8 +34,10 @@ public class Main {
             }
             count++;
         }
+        System.out.print("몇번 반복하나요?");
+        int num = sc.nextInt();
 
-        for(int ia = 0; ia < 100; ia++) {
+        for(int ia = 0; ia < num; ia++) {
             Game.ga(card, players);
             Game.rankCheck(players);
             print(players);
@@ -43,29 +46,38 @@ public class Main {
         for(Player p : players){
             System.out.println(p.toString());
         }
+        System.out.println("총카운트 :" + totalCount);
+        System.out.println("퍼센트 :" + (float)totalCount/num/100);
     }
     static void print(Player[] players){
         int max = players[0].score;
         String nickname = players[0].nickname;
         for (int i = 0; i < players.length; i++) {
-            System.out.println("유저: " + players[i].nickname + "    점수: " + players[i].score);
-//            Arrays.stream(players[i].getCard()).forEach(System.out::print);
-//            System.out.println();
+//            System.out.println("유저: " + players[i].nickname + "    점수: " + players[i].score);
             if (players[i].score > max) {
                 max = players[i].score;
             }
         }
-        System.out.println("최대값: " + maxCheak(max));
+//        System.out.println("최대값: " + maxCheak(max));
+        int count = 0;
         for(int i = 0; i < players.length; i++){
             if(players[i].score == max){
-//                System.out.println("================================");
-//                System.out.println("유저" +players[i].nickname + "  승리!");
+                count++;
                 players[i].win++;
                 players[i].money += 100;
             }
             else{
                 players[i].lose++;
             }
+        }
+        if(count == 2){
+//            for(int i = 0; i < players.length; i++){
+//                if(players[i].score ==  max){
+//                    System.out.println("user :" + players[i].nickname +"    score :"+ players[i].score);
+//                }
+//            }
+            totalCount ++;
+//            System.out.println("동점 발생");
         }
     }
     static String maxCheak(int a){

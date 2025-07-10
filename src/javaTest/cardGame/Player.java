@@ -30,3 +30,6 @@ public class Player {
         return "이름: " + nickname + "    우승: " +win +"   패배: " + lose + "   돈: " + money;
     }
 }
+class Score{
+    int rank;
+}
